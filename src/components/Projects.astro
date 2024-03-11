@@ -1,0 +1,35 @@
+---
+const projects = [
+    {
+        title: "Takopedia",
+        description: "A simple wiki for anime series. I created this project using Svelte. I used Jikan API to get the data. The project is hosted on Netlify.",
+        link: "https://takopedia.netlify.app",
+        github: "https://github.com/NekoDex97/Takopedia_Jikan",
+        image: "/projects/takopedia.webp",
+        tags: ["Svelte", "JikanAPI", "CSS"]
+    },
+    {
+        title: "Unity Game",
+        description: "A little game made for a Jam. I created this project using Unity. The project is hosted on Itch.io.",
+        link: "https://itch.io/profile/mok1aok1",
+        github: "https://itch.io/profile/mok1aok1",
+        image: "/projects/game1.webp",
+        tags: ["Unity"]
+    }
+]
+---
+{
+    projects.map(({title,description, link, github, image, tags}) => (
+        <article class="pb-10">
+        <h1 class="text-3xl font-semibold text-purple-800 mb-2">{title}</h1>
+        <p class="text-lg mb-4 text-pretty">{description}</p>
+        <ul class="flex gap-x-2 flex-row pb-2">
+            {tags.map(tag => <li><span class="flex gap-x-2 rounded-full bg-purple-200 text-sm py-2 px-1">{tag}</span></li>)}
+        </ul>
+        <div class="flex gap-x-2 mb-2"><a class="text-sm text-purple-700 hover:underline" href={link} target="_blank" rel="noopener">View page</a><a class="text-sm text-gray-700 hover:underline" href={github} target="_blank" rel="noopener">View code</a></div>
+        <img 
+        class="rounded shadow-2xl shadow-purple-800"
+        src={image} alt={`Screen capture of of the project ${title}`}>
+        </article>
+    ))
+}
